@@ -138,30 +138,6 @@ class MetaGPTAdapter(BaseAdapter):
             
             if hasattr(member, 'terminal'):
                 member.terminal.work_dir = workspace
-                '''patch_with_middlewares(
-                    member.terminal,
-                    "_read_and_process_output",
-                    [TerminalMiddleware(monitor)]
-                )
-            if hasattr(member, "write_new_code"):
-                patch_with_middlewares(
-                    member,
-                    "write_new_code",
-                    [EngineerMiddleware(monitor)]
-                )
-            if hasattr(member, "write_and_exec_code"):
-                patch_with_middlewares(
-                    member,
-                    "write_and_exec_code",
-                    [EngineerMiddleware(monitor)]
-                )
-            if hasattr(member, "publish_team_message"):
-                patch_with_middlewares(
-                    member,
-                    "publish_team_message",
-                    [TeamLeaderMiddleware(monitor)]
-                )
-            '''
         self.company.invest(investment)
         coro = self.company.run(n_round=n_round, idea=idea)
         if use_async:
